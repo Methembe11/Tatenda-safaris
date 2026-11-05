@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Tatenda Safaris">
+  <rect width="64" height="64" fill="#183d32"/>
+  <path d="M18 18h28v6H36v24h-8V24H18z" fill="#eae6dd"/>
+  <circle cx="46" cy="44" r="4" fill="#b08248"/>
+</svg>
