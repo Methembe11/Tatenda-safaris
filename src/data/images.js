@@ -1,9 +1,9 @@
 export const images = {
   heroFalls: {
-    src: "/images/hero-falls.jpg",
+    src: "/images/safari-lodge.avif",
     width: 1800,
     height: 1100,
-    alt: "Victoria Falls and the Zambezi River seen from above",
+    alt: "Safari lodge in Zimbabwe",
   },
   victoriaFalls: {
     src: "/images/victoria-falls.jpg",

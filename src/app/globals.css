@@ -658,8 +658,8 @@ button {
   min-height: 720px;
   min-height: clamp(620px, calc(100svh - var(--header-h)), 900px);
   overflow: hidden;
-  background: var(--charcoal);
-  color: var(--ivory);
+  background: #F7F3EA;
+  color: #000000;
 }
 
 .heroMedia {
@@ -669,6 +669,7 @@ button {
 
 .heroMedia img {
   object-fit: cover;
+  opacity: 1;
   animation: heroZoom 2.4s var(--ease-out) both;
 }
 
@@ -713,6 +714,16 @@ button {
 .heroTitle em {
   color: var(--terracotta-light);
   font-style: normal;
+}
+
+.heroEyebrow,
+.heroTitle,
+.heroTitle em,
+.heroSub {
+  color: #000000;
+}
+.heroEyebrow::before {
+  background: #000000;
 }
 
 .heroSub {
@@ -2923,7 +2934,17 @@ button {
     color: var(--terracotta-ink);
   }
 
-  .heroSub {
+  .heroEyebrow,
+.heroTitle,
+.heroTitle em,
+.heroSub {
+  color: #000000;
+}
+.heroEyebrow::before {
+  background: #000000;
+}
+
+.heroSub {
     margin-top: var(--space-m);
     color: var(--charcoal-soft);
     font-size: 1rem;
@@ -3452,4 +3473,121 @@ button {
 
 .section--paper :is(h1, h2, h3, h4, p, span, li, a, label, small, strong, em, button, blockquote, dt, dd) {
   color: var(--ivory);
+}
+
+/* Homepage hero readability: keep the photograph at full strength. */
+@media (min-width: 1021px) {
+  .heroContent {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .heroContent::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: -1.5rem -2.5rem 1.25rem -2rem;
+    background: linear-gradient(
+      105deg,
+      rgba(247, 243, 234, 0.96) 0%,
+      rgba(247, 243, 234, 0.9) 68%,
+      rgba(247, 243, 234, 0) 100%
+    );
+    border-left: 2px solid var(--terracotta);
+    pointer-events: none;
+  }
+
+  .heroRoute {
+    padding-inline: 22px;
+    background: rgba(27, 39, 31, 0.82);
+    border-top-color: rgba(247, 243, 234, 0.28);
+    backdrop-filter: blur(8px);
+  }
+
+  .heroRouteItem {
+    color: var(--ivory);
+  }
+
+  .heroRouteItem + .heroRouteItem {
+    border-left-color: rgba(247, 243, 234, 0.2);
+  }
+
+  .heroScroll {
+    padding: 10px 12px;
+    background: rgba(27, 39, 31, 0.72);
+    color: var(--ivory);
+  }
+}
+
+/* Keep the hero supporting paragraph dark against its ivory text panel. */
+.hero .heroContent .heroSub {
+  color: #292B27;
+}
+
+/* Refined hero scale and vertical placement. */
+.heroInner {
+  padding-top: 6.25rem;
+}
+
+.heroContent {
+  max-width: 740px;
+}
+
+.heroEyebrow {
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+}
+
+.heroTitle {
+  font-size: clamp(3.2rem, 5.4vw, 5.2rem);
+  line-height: 1.04;
+}
+
+.heroSub {
+  max-width: 49ch;
+  margin-top: 1rem;
+  font-size: clamp(0.95rem, 1.25vw, 1.12rem);
+  line-height: 1.55;
+}
+
+.heroActions {
+  margin-top: 1.15rem;
+}
+
+.heroRouteItem {
+  padding-top: 16px;
+  padding-bottom: 18px;
+}
+
+@media (max-width: 1020px) {
+  .heroInner {
+    padding-top: 4.5rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .heroInner {
+    padding-top: 3.5rem;
+  }
+
+  .heroTitle {
+    font-size: clamp(2.35rem, 10vw, 3.1rem);
+  }
+}
+
+/* Move the homepage hero content higher in the frame. */
+.heroInner {
+  padding-top: 3.75rem;
+}
+
+@media (max-width: 1020px) {
+  .heroInner {
+    padding-top: 3rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .heroInner {
+    padding-top: 2.25rem;
+  }
 }
