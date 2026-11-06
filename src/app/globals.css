@@ -3591,3 +3591,131 @@ button {
     padding-top: 2.25rem;
   }
 }
+
+/* Mobile navigation: compact header with an accessible dropdown menu. */
+.mobileMenuToggle,
+.mobileNavCta {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  .headerInner {
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    grid-template-areas: "logo toggle cta";
+    align-items: center;
+    min-height: 76px;
+    padding-top: 0;
+    gap: 16px;
+  }
+
+  .headerInner > .wordmark {
+    grid-area: logo;
+  }
+
+  .mobileMenuToggle {
+    grid-area: toggle;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 0 12px;
+    border: 1px solid var(--line-strong, var(--line));
+    background: transparent;
+    color: var(--charcoal);
+    font: inherit;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .mobileMenuToggle svg {
+    width: 18px;
+    height: 18px;
+    stroke-width: 1.7;
+  }
+
+  .headerInner .headerCta {
+    grid-area: cta;
+    min-height: 42px;
+    padding-inline: 14px;
+    font-size: 10px;
+  }
+
+  .headerNav,
+  .headerNav.isOpen {
+    display: none;
+  }
+
+  .headerNav.isOpen {
+    display: flex;
+    grid-area: nav;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+    margin: 0;
+    padding: 10px 0 18px;
+    border-top: 1px solid var(--line);
+    overflow: visible;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  .headerNav.isOpen .navLink {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 12px 2px;
+    border-bottom: 1px solid var(--line);
+    font-size: 11px;
+  }
+
+  .headerNav.isOpen .navLink::after {
+    display: none;
+  }
+
+  .headerNav.isOpen .navLink[aria-current="page"] {
+    color: var(--terracotta);
+  }
+
+  .mobileNavCta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 48px;
+    margin-top: 14px;
+    padding: 0 16px;
+    background: var(--forest, #263f32);
+    color: var(--ivory);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .mobileNavCta svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 760px) {
+  .headerInner {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "logo toggle";
+    min-height: 76px;
+    padding-top: 0;
+    gap: 12px;
+  }
+
+  .headerInner .headerCta {
+    display: none;
+  }
+
+  .headerNav.isOpen {
+    grid-column: 1 / -1;
+  }
+}
